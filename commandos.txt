@@ -1,0 +1,8 @@
+sudo scp -i Dropbox/chave/mproxy Downloads/DADOS\ RELATORIO/bu-integrado-pandemia.csv  ubuntu@168.138.150.84:/home/ubuntu/bu-integrado-pandemia.csv
+
+sudo scp -i Dropbox/chave/mproxy Downloads/DADOS\ RELATORIO/casos_covid.csv ubuntu@168.138.150.84:/home/ubuntu/casos_covid.csv
+
+ssh -i Dropbox/chave/mproxy ubuntu@168.138.150.84
+
+scp -i Dropbox/chave/mproxy ubuntu@168.138.150.84:/home/ubuntu/workspace/projeto-pareamento/saida/bu-integrado-com-id-covid.csv /home/carlos/
+
