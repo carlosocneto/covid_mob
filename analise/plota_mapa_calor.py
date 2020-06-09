@@ -16,7 +16,7 @@ plt.rc('ytick.major', size=4, width=2, pad=4)
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif', serif='Computer Modern', size=16)
 
-arauivo_de_saida = '/home/carlos/Downloads/mapa.pdf'
+arquivo_de_saida = '/home/carlos/Downloads/mapa.pdf'
 
 #CARREGA SETORES
 
@@ -39,7 +39,7 @@ for child in folder:
     polygon = child[2]
     coordinates = polygon[1][0][1]
     s_geometry = coordinates.text
-    pontos_str = s_geometry.split(' ');
+    pontos_str = s_geometry.split(' ')
     pontos = []
     for ponto_str in pontos_str:
         pontos.append(ponto_str.split(','))
@@ -83,4 +83,4 @@ fig, ax = plt.subplots(1, 1)
 
 gdf_setores_processado.plot(column='total_coordenandas_log', ax=ax, legend=True)
 
-plt.savefig(arauivo_de_saida, format="PDF")
+plt.savefig(arquivo_de_saida, format="PDF")
