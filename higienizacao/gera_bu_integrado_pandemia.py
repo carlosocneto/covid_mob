@@ -3,13 +3,15 @@ import glob
 
 #PARAMETROS
 
-arquivo_bu = '/home/carlos/Downloads/mobilidade/gerado/bu_higienizado.csv'
+path_geral = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/'
 
-arquivo_estudantes = '/home/carlos/Downloads/mobilidade/gerado/estudantes.csv'
+arquivo_bu = path_geral+'gerado/bu_higienizado.csv'
 
-arquivo_idosos = '/home/carlos/Downloads/mobilidade/Idosos.csv'
+arquivo_estudantes = path_geral+'gerado/estudantes.csv'
 
-pasta_validations = '/home/carlos/Downloads/DADOS RELATORIO/validations' # diretorio validation
+arquivo_idosos = path_geral+'/Idosos.csv'
+
+pasta_validations = path_geral+'/DADOS RELATORIO/validations' # diretorio validation
 
 all_files = glob.glob(pasta_validations + "/*.txt")
 

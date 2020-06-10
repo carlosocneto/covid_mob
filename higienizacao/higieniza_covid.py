@@ -9,7 +9,7 @@ def popula_data(row):
 
 municipios = ['FORTALEZA','FORTALEZA-CE','FORT, CE - BR','FPORTALEZA, CE - BR','EUSEBIO','EUZEBIO, CE - BR','EUZEBIO','CAUCAIA','MARACANAU','MARANGUAPE']    
 
-covid = pd.read_csv('/home/carlos/Downloads/mobilidade/covid/base-dados-integrasus-2020-06-01 14-47-54.csv',
+covid = pd.read_csv('//home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/covid/base-dados-integrasus-2020-06-01 14-47-54.csv',
                    delimiter=';',encoding='UTF-8',low_memory=False)
 
 covid = covid[covid['resultado_final_exame']=='Positivo']

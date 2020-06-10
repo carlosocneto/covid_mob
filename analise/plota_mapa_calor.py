@@ -57,7 +57,7 @@ gdf_setores['centroid'] = gdf_setores['geometry'].centroid
 
 #CARREGA PONTOS
 
-coordenandas = pd.read_csv('/home/carlos/Downloads/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv',
+coordenandas = pd.read_csv('/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv',
                       delimiter=';',encoding='ISO-8859-1',low_memory=False)
  
 coordenandas=coordenandas.filter(['lat','lng'])
