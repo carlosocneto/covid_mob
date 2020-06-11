@@ -18,6 +18,8 @@ plt.rc('font', family='serif', serif='Computer Modern', size=16)
 
 arquivo_de_saida = '/home/carlos/Downloads/mapa.pdf'
 
+arquivo_coordenadas = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv'
+
 #CARREGA SETORES
 
 arquivokml = '../mapas/setores.kml'
@@ -53,11 +55,15 @@ gdf_setores = gpd.GeoDataFrame(linhas_setores, columns = df_cols)
 
 gdf_setores['centroid'] = gdf_setores['geometry'].centroid
 
+gdf_setores['area'] = gdf_setores['geometry'].area
+
+print(gdf_setores)
+
 #CARREGA SETORES
 
 #CARREGA PONTOS
 
-coordenandas = pd.read_csv('/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv',
+coordenandas = pd.read_csv(arquivo_coordenadas,
                       delimiter=';',encoding='ISO-8859-1',low_memory=False)
  
 coordenandas=coordenandas.filter(['lat','lng'])
@@ -77,7 +83,7 @@ gdf_setores_processado = gdf_setores.merge(df_setores_count_pontos, on='id', how
 
 gdf_setores_processado['total_coordenandas'] = gdf_setores_processado['total_coordenandas'].fillna(1)
 
-gdf_setores_processado['total_coordenandas_log'] = np.log10(gdf_setores_processado['total_coordenandas'])
+gdf_setores_processado['total_coordenandas_log'] = np.log10(gdf_setores_processado['total_coordenandas']/gdf_setores_processado['area'])
 
 fig, ax = plt.subplots(1, 1)
 
