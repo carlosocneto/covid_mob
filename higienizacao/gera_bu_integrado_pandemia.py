@@ -5,11 +5,11 @@ import glob
 
 path_geral = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/'
 
-arquivo_bu = path_geral+'gerado/bu_higienizado.csv'
+arquivo_bu = path_geral+'DADOS RELATORIO/bu_higienizado.csv'
 
-arquivo_estudantes = path_geral+'gerado/estudantes.csv'
+arquivo_estudantes = path_geral+'DADOS RELATORIO/estudantes.csv'
 
-arquivo_idosos = path_geral+'/Idosos.csv'
+arquivo_idosos = path_geral+'Idosos.csv'
 
 pasta_validations = path_geral+'/DADOS RELATORIO/validations' # diretorio validation
 
