@@ -1,7 +1,19 @@
+#LOGIN VM
+
+ssh -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@168.138.150.84
+
+#SUBIR ARQUIVOS PAREAMENTO
+
 sudo scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS\ RELATORIO/bu-integrado-pandemia.csv  ubuntu@168.138.150.84:/home/ubuntu/bu-integrado-pandemia.csv
 
 sudo scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS\ RELATORIO/casos_covid.csv ubuntu@168.138.150.84:/home/ubuntu/casos_covid.csv
 
-ssh -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@168.138.150.84
+#TRAZER ARQUIVO PAREADO
 
 scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@168.138.150.84:/home/ubuntu/workspace/projeto-pareamento/saida/bu-integrado-com-id-covid.csv /home/carlos/
+
+#RODAR PAREAMENTO
+
+cd workspace/projeto-pareamento/bin/
+
+nohup java br.gov.ce.juventude.main.Pareamento &
