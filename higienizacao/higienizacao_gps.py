@@ -142,7 +142,7 @@ def remove_velocity_high(df_gps):
 if __name__ == '__main__':
 
     reports = []
-    
+
     directory = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/junho de 2020/'
     
     directory_raw = directory+'gps_raw/'
@@ -150,11 +150,11 @@ if __name__ == '__main__':
 
     report_name = 'relatorio_higienizacao_junho.csv'
 
-    files = os.listdir(directory)
+    files = os.listdir(directory_raw)
     for i, file in enumerate(files):
         print(i, 'load', file)
 
-        path = os.path.join(directory, file)
+        path = os.path.join(directory_raw, file)
         df = load_gps(path, ajust_time=True)
 
         original_size = len(df)
