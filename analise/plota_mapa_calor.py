@@ -22,7 +22,7 @@ arquivo_coordenadas = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mo
 
 #CARREGA SETORES
 
-arquivokml = '../mapas/setores.kml'
+arquivokml = '../mapas/fortaleza/setores.kml'
 
 tree = ET.parse(arquivokml)
 root = tree.getroot()
