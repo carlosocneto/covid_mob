@@ -10,7 +10,7 @@ sudo scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/c
 
 #TRAZER ARQUIVO PAREADO
 
-scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@140.238.180.43:/home/ubuntu/workspace/projeto-pareamento/saida/bu-integrado-com-id-covid.csv /home/carlos/
+scp -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@140.238.180.43:/home/ubuntu/dados-mob/saida/bu-integrado-com-id-covid.csv /home/carlos/
 
 #RODAR PAREAMENTO
 
