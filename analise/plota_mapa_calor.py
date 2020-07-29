@@ -3,9 +3,8 @@ import geopandas as gpd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from shapely.geometry import Polygon  
-from xml.etree import ElementTree as ET
-
+from shapely import wkt
+from shapely.geometry import Polygon
 
 plt.rc('patch',linewidth=2)
 plt.rc('axes', linewidth=2, labelpad=5)
@@ -22,42 +21,19 @@ arquivo_coordenadas = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mo
 
 #CARREGA SETORES
 
-arquivokml = '../mapas/fortaleza/setores.kml'
+arquivoMapa = '../mapas/fortaleza/setores.csv'
 
-tree = ET.parse(arquivokml)
-root = tree.getroot()
+df_mapa = pd.read_csv(arquivoMapa, delimiter = ';')
 
-document = root[0]
+gdf_setores = gpd.GeoDataFrame(df_mapa)
 
-folder = document[1][1:]
-
-df_cols = ["id", "geometry"]
-linhas_setores = []
-
-for child in folder:
-    extendeddata = child[1]
-    schemaData = extendeddata[0]
-    s_id = schemaData[4].text
-    polygon = child[2]
-    coordinates = polygon[1][0][1]
-    s_geometry = coordinates.text
-    pontos_str = s_geometry.split(' ')
-    pontos = []
-    for ponto_str in pontos_str:
-        pontos.append(ponto_str.split(','))
-    
-    pontos = list(np.float_(pontos))  
-    polygon = Polygon(pontos)
-    
-    linhas_setores.append({"id": s_id, "geometry": polygon})
-    
-gdf_setores = gpd.GeoDataFrame(linhas_setores, columns = df_cols)
+gdf_setores['geometry'] = gdf_setores['geometry'].apply(wkt.loads)
 
 gdf_setores['centroid'] = gdf_setores['geometry'].centroid
 
 gdf_setores['area'] = gdf_setores['geometry'].area
 
-print(gdf_setores)
+print(gdf_setores['centroid'])
 
 #CARREGA SETORES
 
