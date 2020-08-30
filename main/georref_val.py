@@ -6,9 +6,9 @@ from multiprocessing import Pool
 
 #PARÂMETROS
 
-num_process = 12
+num_process = 6
 
-caminho_padrao = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/julho de 2020/'
+caminho_padrao = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/agosto de 2020/'
 
 caminho_hash = caminho_padrao+'veiculos_sindionibus.csv'
 caminho_val = caminho_padrao+'validation_to_process/'

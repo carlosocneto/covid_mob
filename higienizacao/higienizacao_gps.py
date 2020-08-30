@@ -143,12 +143,12 @@ if __name__ == '__main__':
 
     reports = []
 
-    directory = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/julho de 2020/'
+    directory = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/agosto de 2020/'
     
     directory_raw = directory+'gps_raw/'
     save_in = directory+'gps_clean/gps_clean_%s.csv'
 
-    report_name = 'relatorio_higienizacao_julho.csv'
+    report_name = 'relatorio_higienizacao.csv'
 
     files = os.listdir(directory_raw)
     for i, file in enumerate(files):

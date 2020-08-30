@@ -1,6 +1,6 @@
 import pandas as pd
 
-bu = pd.read_csv('/home/carlos/Downloads/BU.csv',delimiter=';'
+bu = pd.read_csv('/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/BU.csv',delimiter=';'
                 ,encoding='UTF-8',low_memory=False,header=None,
                  names=["0", "nome", "documento","orgao_expedidor",
                         "dt_nasc","endereco","bairro","cidade","estado","cep",
@@ -16,6 +16,6 @@ bu['dt_nasc'] = bu['dt_nasc'].str.replace('^ +| +$', '')
 
 bu['bairro'] = bu['bairro'].str.replace('^ +| +$', '')
 
-bu = bu.filter(['sigon','nome','dt_nasc','bairro','cidade','cep','mae','tipo']);
+bu = bu.filter(['sigon','nome','dt_nasc','bairro','cidade','cep','mae','tipo','endereco']);
 
 bu.to_csv('/home/carlos/Downloads/bu_higienizado.csv',index=False,sep=';')

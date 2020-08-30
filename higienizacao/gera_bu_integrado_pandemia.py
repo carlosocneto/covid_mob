@@ -37,7 +37,7 @@ bu = pd.read_csv(arquivo_bu,
 
 bu = bu[bu['sigon'].isin(validation['sigon'].unique())]
 
-bu = bu.filter(['sigon','nome','dt_nasc','mae'])
+bu = bu.filter(['sigon','nome','dt_nasc','mae','endereco','bairro'])
 
 bu['tipo'] = 'bu'
 
@@ -52,14 +52,16 @@ idosos = idosos.filter(
 idosos = idosos[idosos['CODIGO_USUARIO'].isin(validation['sigon'].unique())]
 
 idosos = idosos.rename(
-    columns={'CODIGO_USUARIO': 'sigon','NOME':'nome','DATA_NASCIMENTO':'dt_nasc','USU_NOME_MAE':'mae'})
+    columns={'CODIGO_USUARIO': 'sigon','NOME':'nome','DATA_NASCIMENTO':'dt_nasc','USU_NOME_MAE':'mae','ENDERECO':'endereco','BAIRRO':'bairro'})
 
 idosos['tipo'] = 'idoso'
 
 estudantes = pd.read_csv(arquivo_estudantes,
                    delimiter=';',encoding='ISO-8859-1',low_memory=False)
 
-estudantes = estudantes.filter(['matricula','nome','dt_nasc','mae'])
+estudantes['endereco'] = estudantes['rua']+','+estudantes['numero']
+
+estudantes = estudantes.filter(['matricula','nome','dt_nasc','mae','endereco','bairro'])
 
 estudantes = estudantes[estudantes['matricula'].isin(validation['sigon'].unique())]
 
