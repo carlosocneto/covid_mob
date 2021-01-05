@@ -1,6 +1,6 @@
 #LOGIN VM
 
-ssh -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@140.238.180.43
+sudo ssh -i /home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/sync_folder/chave/mproxy ubuntu@140.238.180.43
 
 #SUBIR ARQUIVOS PAREAMENTO
 
