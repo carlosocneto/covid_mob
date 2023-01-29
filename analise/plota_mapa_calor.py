@@ -17,7 +17,7 @@ plt.rc('font', family='serif', serif='Computer Modern', size=16)
 
 arquivo_de_saida = '/home/carlos/Downloads/mapa.pdf'
 
-arquivo_coordenadas = '/home/carlos/Insync/carlos.o.c.neto@gmail.com/OneDrive/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv'
+arquivo_coordenadas = '/mnt/68E2710EE270E22C/Insync/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv'
 
 #CARREGA SETORES
 
