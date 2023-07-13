@@ -38,12 +38,7 @@ fig, ax = plt.subplots(figsize=(10, 7), dpi=90)
 ax.set_xscale('log')
 ax.set_yscale('log')
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(np.log10(x), np.log10(y))
-
 plt.scatter(x, y, s=200, marker='o', c='white', edgecolors='black', linewidth=2)
-
-a = pow(10, intercept)
-plt.plot(x, a * pow(x, slope), color='#D55E00', linestyle='-', linewidth=2)
 
 ############## Regressão Não Paramétrica - Nadaraya-Watson ####################
 
@@ -51,7 +46,7 @@ sm_x, sm_y = sm_lowess(x, y,  frac=4./5.,
                            it=5, return_sorted = True).T
 
 def smooth(x, y, xgrid):
-    samples = np.random.choice(len(x), 100, replace=True)
+    samples = np.random.choice(len(x), 50, replace=True)
     y_s = y[samples]
     x_s = x[samples]
     y_sm = sm_lowess(y_s,x_s, frac=4./5., it=5,
@@ -65,6 +60,8 @@ xgrid = np.linspace(x.min(),x.max())
 K = 100
 smooths = np.stack([smooth(x, y, xgrid) for k in range(K)]).T
 
+# plt.plot(xgrid, smooths, color='tomato', alpha=0.25)
+
 mean = np.nanmean(smooths, axis=1)
 stderr = scipy.stats.sem(smooths, axis=1)
 stderr = np.nanstd(smooths, axis=1, ddof=0)
@@ -75,6 +72,15 @@ plt.plot(xgrid, mean, color='#56B4E9')
 
 
 ############## Regressão Não Paramétrica - Nadaraya-Watson ####################
+
+############## Regressão Linear ####################
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(np.log10(x), np.log10(y))
+
+a = pow(10, intercept)
+plt.plot(x, a * pow(x, slope), color='#D55E00', linestyle='-', linewidth=2)
+
+############## Regressão Linear ####################
 
 ############## Corner ####################
 
