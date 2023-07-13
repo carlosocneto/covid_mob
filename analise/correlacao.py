@@ -4,8 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import matplotlib.patches as patches
+import scipy.interpolate
+
 from matplotlib.path import Path
 from scipy import stats
+from statsmodels.nonparametric.smoothers_lowess import lowess as  sm_lowess
 
 plt.rc('patch', linewidth=2)
 plt.rc('axes', linewidth=2, labelpad=10)
@@ -44,17 +47,14 @@ plt.plot(x, a * pow(x, slope), color='#D55E00', linestyle='-', linewidth=2)
 
 ############## Regressão Não Paramétrica - Nadaraya-Watson ####################
 
-from statsmodels.nonparametric.smoothers_lowess import lowess as  sm_lowess
-sm_x, sm_y = sm_lowess(x, y,  frac=1., 
+sm_x, sm_y = sm_lowess(x, y,  frac=4./5., 
                            it=5, return_sorted = True).T
 
-import scipy.interpolate
-
 def smooth(x, y, xgrid):
-    samples = np.random.choice(len(x), 50, replace=True)
+    samples = np.random.choice(len(x), 100, replace=True)
     y_s = y[samples]
     x_s = x[samples]
-    y_sm = sm_lowess(y_s,x_s, frac=1., it=5,
+    y_sm = sm_lowess(y_s,x_s, frac=4./5., it=5,
                      return_sorted = False)
     # regularly sample it onto the grid
     y_grid = scipy.interpolate.interp1d(x_s, y_sm, 
