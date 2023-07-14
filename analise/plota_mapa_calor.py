@@ -20,7 +20,7 @@ arquivo_de_saida = '/home/carlos/Downloads/mapa.pdf'
 arquivo_coordenadas = '/mnt/68E2710EE270E22C/Insync/mobilidade_covid/DADOS RELATORIO/RESULTADOS/viagens_contato_direto_indireto.csv'
 
 # CARREGA SETORES
-arquivoMapa = '/home/carlos/workspace/covid_mob/mapas/fortaleza/setores.csv'
+arquivoMapa = '../mapas/fortaleza/setores.csv'
 
 df_mapa = pd.read_csv(arquivoMapa, delimiter=';')
 gdf_setores = gpd.GeoDataFrame(df_mapa)
@@ -47,7 +47,7 @@ df_setores_count_pontos.columns = ['id', 'total_coordenandas']
 gdf_setores_processado = gdf_setores.merge(df_setores_count_pontos, on='id', how='outer')
 gdf_setores_processado['total_coordenandas'] = gdf_setores_processado['total_coordenandas'].fillna(1)
 gdf_setores_processado['total_coordenandas_log'] = np.log10(
-    gdf_setores_processado['total_coordenandas'] / gdf_setores_processado['area'])
+gdf_setores_processado['total_coordenandas'] / gdf_setores_processado['area'])
 
 fig, ax = plt.subplots(1, 1)
 gdf_setores_processado.plot(column='total_coordenandas_log', ax=ax, legend=True)
