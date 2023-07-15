@@ -67,9 +67,10 @@ stderr = scipy.stats.sem(smooths, axis=1)
 stderr = np.nanstd(smooths, axis=1, ddof=0)
 # plot it
 plt.fill_between(xgrid, mean-1.96*stderr,
-                     mean+1.96*stderr, color='#56B4E9',linestyle='--',linewidth=2, alpha=0.25)
+                     mean+1.96*stderr, color='#56B4E9', alpha=0.25)
 plt.plot(xgrid, mean, color='#56B4E9')
-
+plt.plot(xgrid, mean-1.96*stderr, linestyle='--', linewidth=2, color='#56B4E9')
+plt.plot(xgrid, mean+1.96*stderr, linestyle='--', linewidth=2, color='#56B4E9')
 
 ############## Regressão Não Paramétrica - Nadaraya-Watson ####################
 
